@@ -9,6 +9,7 @@ export interface SeasonParams {
 }
 
 export type PlayerStats = {
+  gameId?: string;
   gamesPlayed: number;
   pointsPerGame: number;
   points: number;
