@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { fetchPlayerStats } from "@/lib/utils/api";
 import { mergeGameData } from "@/lib/utils/data";
 import { formatSeasonDate, getDateWithOffset } from "@/lib/utils/date";
-import { get } from "http";
 
 interface SeasonParams {
   isAggregate: boolean;
