@@ -8,8 +8,18 @@ export interface SeasonParams {
   cayenneExp: string;
 }
 
-export interface PlayerStats {
-  gameId?: string;
-  // Add other common properties here
-  [key: string]: any;
-}
+export type PlayerStats = {
+  gamesPlayed: number;
+  pointsPerGame: number;
+  points: number;
+  goals: number;
+  assists: number;
+  penaltyMinutes: number;
+  plusMinus: number;
+  shots: number;
+  blockedShots: number;
+  hits: number;
+  faceoffWinPct: number;
+  totalFaceoffWins: number;
+  totalFaceoffLosses: number;
+};

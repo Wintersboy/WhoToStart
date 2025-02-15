@@ -32,37 +32,31 @@ export const createURLWithParams = (
   return url;
 };
 
-export const fetchPlayerSummary = async (
-  params: SeasonParams
-): Promise<any> => {
+export const fetchPlayerSummary = async (params: SeasonParams) => {
   const url = createURLWithParams(`${NHL_API_BASE}/summary`, params);
   const response = await fetch(url.toString());
   return response.json();
 };
 
-export const fetchPlayerRealtime = async (
-  params: SeasonParams
-): Promise<any> => {
+export const fetchPlayerRealtime = async (params: SeasonParams) => {
   const url = createURLWithParams(`${NHL_API_BASE}/realtime`, params);
   const response = await fetch(url.toString());
   return response.json();
 };
 
-export const fetchPlayerFaceoffWins = async (
-  params: SeasonParams
-): Promise<any> => {
+export const fetchPlayerFaceoffWins = async (params: SeasonParams) => {
   const url = createURLWithParams(`${NHL_API_BASE}/faceoffwins`, params);
   const response = await fetch(url.toString());
   return response.json();
 };
 
-export const fetchPlayerBio = async (params: SeasonParams): Promise<any> => {
+export const fetchPlayerBio = async (params: SeasonParams) => {
   const url = createURLWithParams(`${NHL_API_BASE}/bios`, params);
   const response = await fetch(url.toString());
   return response.json();
 };
 
-export const fetchPlayerStats = async (params: SeasonParams): Promise<any[]> =>
+export const fetchPlayerStats = async (params: SeasonParams) =>
   await Promise.all([
     fetchPlayerSummary(params),
     fetchPlayerRealtime(params),

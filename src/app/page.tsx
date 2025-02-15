@@ -12,6 +12,8 @@ import { CustomSelect } from "@/components/AutocompleteInput";
 import RecentGamesTable from "@/components/RecentGamesTable";
 import UpcomingSchedule from "@/components/UpcomingSchedule";
 
+import { PlayerStats } from "./types/types";
+
 import "./globals.css";
 
 interface Player {
@@ -21,22 +23,6 @@ interface Player {
   sweaterNumber?: number;
   positionCode?: string;
 }
-
-type PlayerStats = {
-  gamesPlayed: number;
-  pointsPerGame: number;
-  points: number;
-  goals: number;
-  assists: number;
-  penaltyMinutes: number;
-  plusMinus: number;
-  shots: number;
-  blockedShots: number;
-  hits: number;
-  faceoffWinPct: number;
-  totalFaceoffWins: number;
-  totalFaceoffLosses: number;
-};
 
 const labels: { [key in keyof PlayerStats]: string } = {
   gamesPlayed: "GP",

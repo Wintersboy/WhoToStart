@@ -20,7 +20,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { playerId, startDate, endDate } = req.query;
+  const { playerId } = req.query;
 
   if (!playerId) {
     return res
