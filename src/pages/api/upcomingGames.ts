@@ -46,6 +46,15 @@ const formatStats = (stats: GameStats) => ({
   blockedShots: stats.blockedShots,
 });
 
+const getStartOfWeek = () => {
+  const today = new Date();
+  const dayOfWeek = today.getDay();
+  const diff = today.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1); // adjust when day is sunday
+  const monday = new Date(today.setDate(diff));
+  const formattedDate = monday.toISOString().split("T")[0];
+  return formattedDate;
+};
+
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "GET") {
     return res.status(405).json({ message: "Method not allowed" });
@@ -53,8 +62,10 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
   const { playerId, teamAbbrev, currentSeason, previousSeason } = req.query;
 
+  const formattedDate = getStartOfWeek();
+
   const schedule = await fetch(
-    `https://api-web.nhle.com/v1/club-schedule/${teamAbbrev}/week/2025-01-13`
+    `https://api-web.nhle.com/v1/club-schedule/${teamAbbrev}/week/${formattedDate}`
   );
 
   const data = await schedule.json();
